@@ -14,35 +14,6 @@ def homepage(request):
     text_with_message = f"{text}\n<p>{message}</p>"
     return HttpResponse(text_with_message)
 
-from django.http import HttpResponse 
-def index(request): 
-    path = request.path 
-    method = request.method 
-    content=''' 
-<center><h2>Testing Django Request Response Objects</h2> 
-<p>Request path : " {}</p> 
-<p>Request Method :{}</p></center> 
-'''.format(path, method) 
-    return HttpResponse(content) 
-
-def home(request):
-    path = request.path
-    scheme = request.scheme
-    method = request.method
-    address = request.META['REMOTE_ADDR']
-    user_agent = request.META['HTTP_USER_AGENT']
-    path_info = request.path_info
-
-    msg = f""" <br>
-        <br>Path: {path}
-        <br>Scheme: {scheme}
-        <br>Method: {method}
-        <br>Address: {address}
-        <br>User Agent: {user_agent}
-        <br>Path Info: {path_info}
-    """
-    response = HttpResponse(msg)
-    return response
 
 def menuitems(request, dish):
     items = {

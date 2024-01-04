@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from demoapp import views
+from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.home, name='home'), # This path and the path below do the exact same thing
     path('', include('demoapp.urls')),   # The only difference is that this path is in the project folder and the path above is in the app folder
     path('demo/', views.index), # this path 
-    path('main/', include('demoapp.urls')),
  
 ]
+
+handler404 = 'demoproject.views.handler404'
